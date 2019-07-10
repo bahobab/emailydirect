@@ -13,8 +13,13 @@ passport.use(new GoogleStrategy({
     callbackURL: '/auth/google/callback'
 }, async(accessToken, refreshToken, profile, done) => {
     try {
-        const newUser = await new User({googleId: profile.id}).save();
-        console.log(newUser);
+        const esxistingUser = await User.findOne({googleId: profile.id});
+        if (esxistingUser) {
+            console.log('User already exist');
+        } else {
+            const newUser = await new User({googleId: profile.id}).save();
+            console.log(newUser);
+        }
     } catch (error) {
         console.log(error);
     }
