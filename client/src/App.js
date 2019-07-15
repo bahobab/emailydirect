@@ -3,11 +3,12 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Header from './components/header/Header';
+import Landing from './components/landing/Landing';
+
 import {fetchUser} from './actions';
 
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
-const Landing = () => <h2>Landing</h2>
 
 class App extends React.Component {
     constructor(props) {
