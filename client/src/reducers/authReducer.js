@@ -1,6 +1,9 @@
-export default function (state = {}, action) {
-    console.log(action)
+import {actionTypes} from '../actions/actionTypes';
+
+export default function (state = null, action) {
     switch (action.type) {
+        case actionTypes.USER_FETCHED:
+            return action.payload || false
         default:
             return state
     }
