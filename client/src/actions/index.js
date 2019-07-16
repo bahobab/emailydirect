@@ -1,8 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
-import {actionTypes} from './actionTypes';
+import { actionTypes } from "./actionTypes";
 
 export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/api/current_user');
-    dispatch({type: actionTypes.USER_FETCHED, payload: res.data})
-}
+  const res = await axios.get("/api/current_user");
+  dispatch({ type: actionTypes.USER_FETCHED, payload: res.data });
+};
+
+export const handleToken = token => async dispatch => {
+  const res = await axios.post("/api/stipe", token);
+  dispatch({ type: actionTypes.USER_FETCHED, payload: res.data });
+};
