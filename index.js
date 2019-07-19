@@ -9,6 +9,7 @@ const keys = require("./config/keys");
 mongoose.connect(keys.MONGO_URI);
 
 require("./models/User");
+require("./models/Surveys");
 require("./services/passport"); // just the file is required
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 require("./routes/google.auth.route")(app);
 require("./routes/billringRoutes")(app);
+require("./routes/surveysRoute")(app);
 
 if (process.env.NODE_ENV === "production") {
   // Express will server up production assets
@@ -43,3 +45,10 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
+
+process.on("SIGTERM", () => {
+  server.close(() => {
+    console.log("Process terminated");
+  });
+});
+// https://nodejs.dev/how-to-exit-from-a-nodejs-program
