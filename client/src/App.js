@@ -5,10 +5,9 @@ import { connect } from "react-redux";
 import Dashboard from "./components/dashboard/Dashboard";
 import Header from "./components/header/Header";
 import Landing from "./components/landing/Landing";
+import SurveyNew from "./components/surveys/SurveyNew";
 
 import { fetchUser } from "./actions";
-
-const SurveyNew = () => <h2>SurveyNew</h2>;
 
 class App extends React.Component {
   constructor(props) {
