@@ -46,9 +46,9 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 
-process.on("SIGTERM", () => {
-  server.close(() => {
-    console.log("Process terminated");
-  });
-});
+// process.on("SIGTERM", () => {
+//   server.close(() => {
+//     console.log("Process terminated");
+//   });
+// });
 // https://nodejs.dev/how-to-exit-from-a-nodejs-program

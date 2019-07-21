@@ -5,15 +5,15 @@ module.exports = survey => {
     <html>
       <body>
         <div style="display: flex; flex-direction: column;">
-          <h3>We'd Like To Hear From You</h3>
-          <p>${survey}</p>
+          <h3>${survey.title}</h3>
+          <p>${survey.body}</p>
           <div style="width: 500px; display: flex; justify-content: flex-start;">
             <button style="margin-left: 10px; width: 65px;"><a href="${
               keys.REDIRECT_DOMAIN
-            }/api/surveys/thanks">Yes</a></button>
+            }/api/surveys/${survey.id}/yes">Yes</a></button>
             <button style="margin-left: 10px; width: 65px;"><a href="${
               keys.REDIRECT_DOMAIN
-            }/api/surveys/thanks">No</a></button>
+            }/api/surveys/${survey.id}/no">No</a></button>
           </div>
         </div>
       </body>

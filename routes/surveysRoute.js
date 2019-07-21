@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const Path = require("path-parser");
+const _ = require("lodash");
+const { URL } = require("url");
 
 const requireLogin = require("../middlewares/requireLoggin");
 const requireCredits = require("../middlewares/requireCredits");
@@ -9,6 +12,25 @@ const surveyTemplate = require("../services/email-templates/surveyTemplate");
 module.exports = app => {
   app.get("/api/surveys/thanks", (req, res) => {
     res.send("Thanks for voting");
+  });
+
+  app.post("/api/surveys/webhooks", (req, res) => {
+    const events = _.map(req.body, ({ email, url }) => {
+      const pathName = new URL(url).pathname;
+      const p = new Path("/api/surveys/:surveyId/:choice");
+      // console.log(p.test(pathName));
+      const match = p.test(pathName);
+
+      if (match) {
+        return { email, ...match };
+      }
+    });
+
+    const compactEvents = _.compact(events);
+    const uniqueEvents = _.uniqBy(compactEvents, "email", "surveyId");
+
+    console.log(uniqueEvents);
+    res.send({});
   });
 
   app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
@@ -27,10 +49,7 @@ module.exports = app => {
     });
 
     // send survey using Mailer
-    const mailer = new Mailer(
-      survey,
-      surveyTemplate(`<div>${survey.body}</div>`)
-    );
+    const mailer = new Mailer(survey, surveyTemplate(survey));
 
     try {
       await mailer.send();
