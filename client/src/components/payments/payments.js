@@ -11,16 +11,13 @@ class Payments extends React.Component {
         name="Email"
         description="Pay for your purchase. Thank You"
         amount={500}
-        token={token => this.props.handleToken(token)}
+        token={(token) => this.props.handleToken(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
-        <button className="btn">Add Credits</button>
+        <button className="btn">Buy Credits</button>
       </StripeCheckout>
     );
   }
 }
 
-export default connect(
-  null,
-  actions
-)(Payments);
+export default connect(null, actions)(Payments);
