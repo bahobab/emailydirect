@@ -66,7 +66,7 @@ class Mailer extends helpers.classes.Mail {
   // Through the use of Static methods from the Mail helper Class, you create a sendgrid compliant instance that can be send easily
   constructor({ subject, recipients }, content) {
     super();
-    this.setFrom("no-reply@emaily.com"); // uses the EmailAddress.create method
+    this.setFrom("khoophx@gmail.com"); // uses the EmailAddress.create method
     this.setSubject(subject);
     this.addHtmlContent(content); // same as addContent, but more specific for HTML
 
@@ -75,7 +75,7 @@ class Mailer extends helpers.classes.Mail {
     );
 
     this.setTrackingSettings({
-      clickTracking: { enable: true, enableText: true }
+      clickTracking: { enable: true, enableText: true },
     });
     this.addTo(this.recipients); // This uses the personalization method in the background
   }
