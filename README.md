@@ -1,55 +1,52 @@
-Emaily Direct
-==========================================================
+# Email Marketing Campain
 
-Email Marketing Campain
+Reach out to your clients/customers and collect their feedback using email survey
 
-WHAT it does
-=============
+# How It Works
 
-This is a React powered E-mail marketing promotion web app.
-User logs in the app, purchase credits to be able to send promotional emails.
+This is a React powered E-mail marketing/survey promotion web app.
+
+1. user logs in the app
+2. purchase credits to be able to send promotional emails
+3. click red "+" button to create new survey
+
+# Tech Stack
 
 This application makes use of the MERN stack:
+
+- MongoDB (MongoDB Atlas)
+- Express
 - React ContextAPI, Hooks, High Order Components(HOC)
 - Redux (Thunk, Form)
-- MongoDB
-- Express
 - Node
 - Stripe Payment
 - Sendgrid
+- Google OAuth authentication
 
-It's a senior developer level javaScript coding project making extensive use of JS techniques such as:
+## Additional Techologies
+
 - Promises
 - Async/Await
 - Webhooks
 - Functional programming
-- Google OAuth authentication
 - Version Control
-- Production Deployment
 - localtunnel.me
 
-Security:
+# HOW To Use:
 
+1. To replicate this project you will need to create accounts with:
 
-Production deployment
-- Heroku
+- Google
 - Stripe payment
+- Sendgrid
 
-The project has been deployed to production environment on Heroku and is life here.
+2. To run the project locally in in a dev environment, clone the project, install packages and run the script:
 
-HOW to use:
-===========
+```shell
+  $ cd server
+  $ server/npm run dev
+```
 
-To replicate this project you will need to create accounts with:
-- Firebase
-- Google login
-- Stripe payment
+# Production Deployment
 
-1. To run the project locally in in a dev environment, clone the project, install packages and run the script:
-$ cd server
-$ server/npm run dev
-
-2. To deploy to production run npm run heroku-post-build, then use the Heroku deployment process
-
-SEE IT LIVE
-https://emailylive.herokuapp.com
+SEE IT LIVE [emailydirect](https://emailydirect.herokuapp.com/)
