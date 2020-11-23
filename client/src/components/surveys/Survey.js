@@ -13,8 +13,8 @@ const Survey = ({ title, subject, body, dateSent, lastResponded, yes, no }) => {
         <p>Last Responded On: {new Date(lastResponded).toLocaleDateString()}</p>
       </div>
       <div className="card-action">
-        <a>#of Yes: {yes}</a>
-        <a># of No: {no}</a>
+        <a href="#">#of Yes: {yes}</a>
+        <a href="#"># of No: {no}</a>
       </div>
     </div>
   );

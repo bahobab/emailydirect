@@ -16,7 +16,7 @@ This application makes use of the MERN stack:
 
 - MongoDB (MongoDB Atlas)
 - Express
-- React ContextAPI, Hooks, High Order Components(HOC)
+- React (ContextAPI, Hooks, High Order Components)
 - Redux (Thunk, Form)
 - Node
 - Stripe Payment
@@ -44,7 +44,7 @@ This application makes use of the MERN stack:
 
 ```shell
   $ cd server
-  $ server/npm run dev
+  server$ npm run dev
 ```
 
 # Production Deployment

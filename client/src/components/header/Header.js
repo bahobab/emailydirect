@@ -28,14 +28,14 @@ class Header extends React.Component {
           </li>,
           <li key={3}>
             <a href="/api/logout">Logout</a>
-          </li>
+          </li>,
         ];
     }
   }
 
   render() {
     return (
-      <nav>
+      <nav style={{ backgroundColor: "#202f4e" }}>
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? "/surveys/" : "/"}
