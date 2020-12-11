@@ -1,3 +1,7 @@
 .nav {
   background-color: #f76870 !important;
 }
+
+nav .brand-logo {
+  padding-left: 10px !important;
+}

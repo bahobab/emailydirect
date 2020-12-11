@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Path = require("path-parser");
+const {Path} = require("path-parser");
 const _ = require("lodash");
 const { URL } = require("url");
 
@@ -23,6 +23,7 @@ module.exports = (app) => {
   });
 
   app.post("/api/surveys/webhooks", (req, res) => {
+    // console.log('>>click response', req.body)
     const p = new Path("/api/surveys/:surveyId/:choice");
 
     _.chain(req.body)
